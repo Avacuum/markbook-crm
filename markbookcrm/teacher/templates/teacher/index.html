@@ -1,0 +1,36 @@
+{% extends 'teacher/base.html' %}
+
+{% block content %}
+    <div class="col-3 ">
+
+        <div class="bg-primary mb-2 p-2 d-flex text-white flex-column">
+            <p>total students:</p>
+            <p>total groups: </p>
+        </div>
+
+        <div class="bg-primary mb-2 p-2 d-flex flex-column">
+            <a class="link-light text-decoration-none" href="{% url 'addlesson' %}"><button class="btn btn-success mb-2">Add lesson</button></a>
+            <a class="link-light text-decoration-none" href="{% url 'addstudent' %}"><button class="btn btn-success mb-2">Add student</button></a>
+            <a class="link-light text-decoration-none" href="{% url 'addgroup' %}"><button class="btn btn-success mb-2">Add group</button></a>
+        </div>
+
+        <div class="bg-primary text-white p-2">
+            <button class="btn btn-light btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                Groups
+              </button>
+              <div class="collapse" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    {% for g in groups %}
+                    <li class="mt-2">
+                        <p>{{ g.groupName }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+              </div>
+        </div>
+        
+            
+
+    </div>
+    <div class="col-9 bg-light"><h1>Сводка за март</h1></div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'teacher/base.html' %}
+
+{% block content %}
+    <div class="col-12 bg-primary text-white p-3">
+        <h1>{{ title }}</h1>
+        <form action="{% url 'addstudent' %}" method="post">
+            <div class="d-flex flex-column">
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class="m-1">
+                        {{ f }}
+                    </div>
+                {% endfor %}
+                <button class="btn btn-success w-25 m-1" type="submit">Добавить</button>
+            </div>
+        </form>
+    </div>
+   
+{% endblock %}
