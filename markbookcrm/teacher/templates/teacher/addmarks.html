@@ -2,13 +2,21 @@
 
 {% block content %}
     <div class="col-12 bg-primary text-white p-3">
-        <h1>{{ group.id }}</h1>
-        <h2>{{ group.groupName }}</h2>
+        <h2>{{ group.groupName }} add marks for <b>{{ lesson.title }}</b> lesson</h2>
         <ul>
-            {% for s in students %}
-                <h3>{{ s.name }}</h3>
-            {% endfor %}
+                <form action="{% url 'addmarks' lesson.id %}" method="post">
+                    {% csrf_token %}
+              {{ formset.management_form }}
+              <table>
+                  {% for form in formset %}
+                  <tr><td><ul class="list-inline">{{ form.as_ul }}</ul></td></tr>
+                  {% endfor %}
+              </table>
+              <input type="submit" value="Add marks" class="btn btn-success mt-2">    
+            </form>            
         </ul>
     </div>
    
 {% endblock %}
+
+базовые понятия по контескной рекламе

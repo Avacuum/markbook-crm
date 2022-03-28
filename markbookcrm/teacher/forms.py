@@ -9,7 +9,7 @@ class AddLessonForm(forms.ModelForm):
 
     class Meta:
         model = Lessons
-        fields = ['title','link','group']
+        fields = ['id', 'title','link','group']
         titleLable = "Тема урока"
         linkLable = "Ссылка на справочный материал"
         widgets = {
@@ -46,4 +46,16 @@ class AddGroupForm(forms.ModelForm):
         groupNameLable = "Name"
         widgets = {
             'name': forms.TextInput(attrs={"placeholder":groupNameLable, "class" : "w-100"}),
+            }
+
+class AddMarkForm(forms.ModelForm):
+    def __init__(self,*args, **kwargs,):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Marks
+        fields = ['mark']
+        markLable = "Mark"
+        widgets = {
+            'mark': forms.TextInput(attrs={"placeholder":markLable, "class" : "w-100"}),
             }

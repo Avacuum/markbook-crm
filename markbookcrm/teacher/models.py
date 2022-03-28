@@ -34,8 +34,8 @@ class Group(models.Model):
 
 class Marks(models.Model):
     mark = models.SmallIntegerField()
-    student = models.ForeignKey('Students', on_delete=models.PROTECT)
-    lesson = models.ForeignKey('Lessons', on_delete=models.PROTECT)
+    student_id = models.ForeignKey('Students', on_delete=models.PROTECT)
+    lesson_id = models.ForeignKey('Lessons', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.mark
